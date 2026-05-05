@@ -258,7 +258,7 @@ const Contact = () => {
                 <h3 className="text-2xl font-bold font-heading text-white mb-2">Send Us a Message</h3>
                 <p className="text-titanium text-sm mb-8">We typically respond within 24 hours.</p>
 
-                <form action="/contact" method="POST" onSubmit={handleSubmit} className="space-y-5 relative z-50">
+                <form action={`${import.meta.env.VITE_API_URL}/contact`} method="POST" onSubmit={handleSubmit} className="space-y-5 relative z-50">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label htmlFor="firstName" className="block text-titanium text-xs font-semibold uppercase tracking-widest mb-2">

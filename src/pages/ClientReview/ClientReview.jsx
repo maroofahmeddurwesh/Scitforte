@@ -69,7 +69,7 @@ const ClientReview = () => {
           ) : (
             <form
               ref={formRef}
-              action="/review"
+              action={`${import.meta.env.VITE_API_URL}/review`}
               method="POST"
               onSubmit={handleSubmit}
               className="space-y-6 relative z-50"
