@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================
+   BASE RESET & GLOBAL
+   ========================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  background-color: #0f1a1f;
+  color: #ffffff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================
+   DESIGN SYSTEM UTILITIES
+   ========================================= */
+
+/* Glass Morphism */
+.liquid-glass {
+  background: linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 207, 255, 0.15);
+}
+
+.liquid-glass-dark {
+  background: rgba(15, 26, 31, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 207, 255, 0.12);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #00CFFF, #BFC1C2, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-cobalt {
+  background: linear-gradient(90deg, #00CFFF, #007a99);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Cobalt Glow Effects */
+.cobalt-glow {
+  box-shadow: 0 0 20px rgba(0, 207, 255, 0.4), 0 0 40px rgba(0, 207, 255, 0.2);
+}
+
+.cobalt-glow-sm {
+  box-shadow: 0 0 10px rgba(0, 207, 255, 0.3);
+}
+
+.cobalt-glow-border {
+  border: 1px solid rgba(0, 207, 255, 0.4);
+  box-shadow: 0 0 15px rgba(0, 207, 255, 0.2), inset 0 0 15px rgba(0, 207, 255, 0.05);
+}
+
+/* Buttons */
+.btn-cobalt {
+  background: linear-gradient(135deg, #00CFFF, #007a99);
+  color: #0f1a1f;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.btn-cobalt::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.btn-cobalt:hover {
+  box-shadow: 0 0 25px rgba(0, 207, 255, 0.6), 0 8px 24px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-cobalt:hover::before {
+  opacity: 1;
+}
+
+.btn-glass {
+  background: transparent;
+  color: #00CFFF;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  padding: 0.72rem 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 207, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.btn-glass:hover {
+  background: rgba(0, 207, 255, 0.1);
+  border-color: #00CFFF;
+  box-shadow: 0 0 20px rgba(0, 207, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Section Headers */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 207, 255, 0.1);
+  border: 1px solid rgba(0, 207, 255, 0.3);
+  color: #00CFFF;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.375rem 1rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+/* Product/Service Cards */
+.quantum-card {
+  background: linear-gradient(135deg, rgba(38, 50, 56, 0.8), rgba(15, 26, 31, 0.9));
+  border: 1px solid rgba(0, 207, 255, 0.1);
+  border-radius: 1rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.quantum-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 207, 255, 0.05), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.quantum-card:hover {
+  border-color: rgba(0, 207, 255, 0.4);
+  box-shadow: 0 0 30px rgba(0, 207, 255, 0.2), 0 20px 40px rgba(0, 0, 0, 0.5);
+  transform: translateY(-6px);
+}
+
+.quantum-card:hover::before {
+  opacity: 1;
+}
+
+/* Cobalt Accent Line */
+.cobalt-line {
+  width: 3.5rem;
+  height: 3px;
+  background: linear-gradient(90deg, #00CFFF, transparent);
+  border-radius: 2px;
+  margin-bottom: 1.5rem;
+}
+
+/* Animated Circuit Pattern */
+.circuit-bg {
+  background-image: 
+    linear-gradient(rgba(0, 207, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 207, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Page Section Spacing */
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f1a1f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 207, 255, 0.4);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 207, 255, 0.7);
+}
+
+/* Stat card */
+.stat-card {
+  background: rgba(0, 207, 255, 0.05);
+  border: 1px solid rgba(0, 207, 255, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  background: rgba(0, 207, 255, 0.1);
+  border-color: rgba(0, 207, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 207, 255, 0.2);
+}
+
+/* Form Inputs */
+.quantum-input {
+  background: rgba(15, 26, 31, 0.8);
+  border: 1px solid rgba(191, 193, 194, 0.2);
+  border-radius: 0.5rem;
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.quantum-input::placeholder {
+  color: rgba(191, 193, 194, 0.4);
+}
+
+.quantum-input:focus {
+  border-color: #00CFFF;
+  box-shadow: 0 0 15px rgba(0, 207, 255, 0.2);
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  background: rgba(38, 50, 56, 0.6);
+  border: 1px solid rgba(0, 207, 255, 0.12);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 1rem;
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  border-color: rgba(0, 207, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 207, 255, 0.15);
+}
+
+/* Slick Carousel override */
+.slick-dots li button:before {
+  color: #00CFFF !important;
+  opacity: 0.4;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: #00CFFF !important;
+}
+
+/* Marquee */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  mask-image: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+}
+
+.marquee-track {
+  display: inline-flex;
+  animation: scroll-x 30s linear infinite;
+  gap: 3rem;
+  align-items: center;
+}
+
+@keyframes scroll-x {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Nav active underline */
+.nav-link-active {
+  color: #00CFFF !important;
+}
+
+.nav-link-active::after {
+  transform: scaleX(1) !important;
+}
+
+/* Hover underline for nav */
+.nav-link {
+  position: relative;
+  color: rgba(255,255,255,0.85);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  letter-spacing: 0.02em;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #00CFFF;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #00CFFF;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Product section layout */
+.section-layout {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 207, 255, 0.07);
+}

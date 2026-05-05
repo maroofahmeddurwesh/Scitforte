@@ -1,0 +1,4 @@
+/* Home page specific styles - minimal since design system handles most */
+.home-hero-orb {
+  animation: float 6s ease-in-out infinite;
+}

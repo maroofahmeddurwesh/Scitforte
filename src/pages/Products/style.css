@@ -1,0 +1,12 @@
+@keyframes switch-words {
+    0% { content: "meaningful"; }
+    33% { content: "impactful"; }
+    66% { content: "innovative"; }
+    100% { content: "meaningful"; }
+}
+
+.word-switch::after {
+    content: "meaningful";
+    animation: switch-words 6s infinite;
+    display: inline-block;
+}

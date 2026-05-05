@@ -1,0 +1,31 @@
+.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.15em solid white;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+.loop.typing-effect {
+    animation: none;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: white; }
+}
+
+/* Add the border-active class for the active card */
+.border-active {
+    border-top: 4px solid rgb(129, 140, 248);
+    transition: border-top 0.3s ease-in-out; /* Add smooth transition for the border */
+}
+
+/* Ensure the card has no border initially and transitions smoothly */
+.card {
+    transition: border-top 0.3s ease-in-out; /* Ensure transition is consistent */
+}
